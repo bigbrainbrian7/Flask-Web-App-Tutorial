@@ -6,13 +6,13 @@ import os
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
-
+print(os.getenv('DATABASE_PATH'))
 DATABASE_FULL_PATH=os.getenv('DATABASE_PATH')+'/'+DB_NAME
 
 def create_app():
     app =Flask(__name__)
     app.config['SECRET_KEY'] = 'vdlkzszSVKDJbwejhf'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+DATABASE_FULL_PATH
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DATABASE_FULL_PATH}'
     db.init_app(app)
 
     from .auth import auth
@@ -36,7 +36,7 @@ def create_app():
     return app
 
 def create_database(app):
-    if not path.exists('website/' + DB_NAME):
+    if not path.exists(DATABASE_FULL_PATH):
         with app.app_context():
             db.create_all()
         print('Created Database!')
