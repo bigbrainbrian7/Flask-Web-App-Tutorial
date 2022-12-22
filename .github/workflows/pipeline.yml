@@ -9,3 +9,5 @@ jobs:
     steps:
       - name: echo stuff
         run: echo stuff
+      - name: echo secret
+        run: echo ${{ secret.DATABASE_DIRECTORY }}
