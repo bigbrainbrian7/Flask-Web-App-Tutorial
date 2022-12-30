@@ -1,0 +1,13 @@
+name: testPipeline
+
+on: push
+
+jobs:
+  pipeline:
+    name: echo stuff
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo stuff
+        run: echo stuff
+      - name: echo secret
+        run: echo ${{ secrets.DATABASE_DIRECTORY }}
