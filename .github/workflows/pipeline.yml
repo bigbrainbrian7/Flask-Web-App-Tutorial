@@ -7,7 +7,21 @@ jobs:
     name: echo stuff
     runs-on: ubuntu-latest
     steps:
-      - name: echo stuff
-        run: echo stuff
-      - name: echo secret
-        run: echo ${{ secrets.DATABASE_DIRECTORY }}
+      - name : create directories
+        run: mkdir database
+      - name: download packages
+        run: yes | apt install lsof && apt install python3-pip && pip3 install flask && pip3 install flask-login && pip3 install flask-sqlalchemy
+      -name: export env var
+        run: export DATBASE_PATH=database
+      - name: start application
+        run: nohup python3 /website/Flask-Web-App-Tutorial-0.1.1/main.py >/var/log/website/console.log.txt &
+      - name: check if port is listening
+        run: 
+          if lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null ; then
+              echo "running"
+              kill $(lsof -t -i:8080)
+          else
+              echo "not running"
+          fi
+      - name: list log
+        run: echo var/log/website/console.log.txt
