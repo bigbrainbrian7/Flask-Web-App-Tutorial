@@ -16,12 +16,12 @@ jobs:
              echo $DATABASE_PATH
       - name: start application
         run: nohup python3 /website/Flask-Web-App-Tutorial-0.1.1/main.py >/var/log/website/console.log.txt &
+      - name: list log
+        run: echo var/log/website/console.log.txt
       - name: check if port is listening
         run: 
-          if lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null ; then
-            kill $(lsof -t -i:8080)
+          if lsof -Pi :5000 -sTCP:LISTEN -t >/dev/null ; then
+            kill $(lsof -t -i:5000)
           else
             echo "not running"
           fi
-      - name: list log
-        run: echo var/log/website/console.log.txt
