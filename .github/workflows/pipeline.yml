@@ -14,8 +14,10 @@ jobs:
       - name: download packages
         run: yes | sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
       - name: export env var
-        run: export DATABASE_PATH=database
-             echo $DATABASE_PATH
+        run: |
+          #yghtdfytdtyd
+          export DATABASE_PATH=database
+          echo $DATABASE_PATH
       - name: start appli.1.1/cation
         run: nohup python3 main.py > console.log.txt &
       - name: list log
