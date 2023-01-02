@@ -29,7 +29,8 @@ jobs:
           #yghtdfytdtyd
           pwd
           ls
-          nohup python3 /home/runner/work/Flask-Web-App-Tutorial/main.py > console.log.txt &
+          whereis main.py
+          nohup python3 /home/runner/work/Flask-Web-App-Tutorial/Flask-Web-App-Tutorial/main.py > console.log.txt &
       - name: list log
         run: |
           #yghtdfytdtyd
