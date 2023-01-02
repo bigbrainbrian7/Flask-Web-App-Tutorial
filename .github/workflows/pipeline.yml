@@ -18,7 +18,7 @@ jobs:
       - name: download packages
         run: |
           #yghtdfytdtyd
-          yes | sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
+          yes | sudo apt-get install lsof && sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
       - name: export env var
         run: |
           #yghtdfytdtyd
@@ -40,7 +40,7 @@ jobs:
             then
               echo "the 5000 port is listening"
               ps
-              pkill -9 -f python3
+              kill -9 $(lsof -t -i:5000)
               ps
           fi
             
