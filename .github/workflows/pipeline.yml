@@ -40,7 +40,7 @@ jobs:
             then
               echo "the 5000 port is listening"
               ps
-              kill $(lsof -t -i:5000)
+              pkill -9 -f python3
               ps
           fi
             
