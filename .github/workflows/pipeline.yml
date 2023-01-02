@@ -6,6 +6,8 @@ jobs:
   pipeline:
     name: echo stuff
     runs-on: ubuntu-latest
+    env:
+      DATABASE_PATH: database
     steps:
       - name: access repo
         uses: actions/checkout@v3
@@ -24,7 +26,6 @@ jobs:
       - name: export env var
         run: |
           #yghtdfytdtyd
-          export DATABASE_PATH=database
           echo $DATABASE_PATH
       - name: start application
         run: |
