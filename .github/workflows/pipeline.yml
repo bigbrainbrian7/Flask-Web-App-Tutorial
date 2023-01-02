@@ -30,7 +30,7 @@ jobs:
       - name: start application
         run: |
           #yghtdfytdtyd
-          sudo nohup python3 main.py > console.log.txt &
+          nohup python3 main.py > console.log.txt &
       - name: list log
         run: |
           #yghtdfytdtyd
