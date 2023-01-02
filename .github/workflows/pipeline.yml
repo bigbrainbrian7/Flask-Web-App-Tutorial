@@ -31,6 +31,19 @@ jobs:
           ls -al
           cd ..
           ls -al
+          cd..
+          ls -al
+          cd ..
+          ls -al
+          cd..
+          ls -al
+          cd ..
+          ls -al
+          cd..
+          ls -al
+          cd ..
+          ls -al
+          cd..
           whereis main
           find main
           nohup python3 main.py > console.log.txt &
