@@ -17,13 +17,18 @@ jobs:
         run: export DATBASE_PATH=database
              echo $DATABASE_PATH
       - name: start application
-        run: nohup python3 /website/Flask-Web-App-Tutorial-0.1.1/main.py >console.log.txt &
+        run: nohup python3 /website/Flask-Web-App-Tutorial-0.1.1/main.py > console.log.txt &
       - name: list log
         run: cat console.log.txt
       - name: check if port is listening
         run: 
-          if lsof -Pi :5000 -sTCP:LISTEN -t >/dev/null ; then
-            kill $(lsof -t -i:5000)
-          else
-            echo "not running"
-          fi
+         netstat -an | grep ".5000 "
+          if [ $? -eq 0 ]
+            then
+              echo "the 5000 port is listening"
+               ps
+              kill $(lsof -t -i:5000)
+              ps
+            fi
+            
+ 
