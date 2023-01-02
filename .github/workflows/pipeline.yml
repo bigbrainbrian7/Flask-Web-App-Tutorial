@@ -27,6 +27,8 @@ jobs:
       - name: start application
         run: |
           #yghtdfytdtyd
+          pwd
+          ls
           nohup python3 /home/runner/work/Flask-Web-App-Tutorial/main.py > console.log.txt &
       - name: list log
         run: |
