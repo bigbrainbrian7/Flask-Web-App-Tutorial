@@ -8,29 +8,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create directories
-        run: mkdir database
+        run: |
+          #yghtdfytdtyd
+          mkdir database
       - name: create log
-        run: touch console.log.txt
+        run: |
+          #yghtdfytdtyd
+          touch console.log.txt
       - name: download packages
-        run: yes | sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
+        run: |
+          #yghtdfytdtyd
+          yes | sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
       - name: export env var
         run: |
           #yghtdfytdtyd
           export DATABASE_PATH=database
           echo $DATABASE_PATH
-      - name: start appli.1.1/cation
-        run: nohup python3 main.py > console.log.txt &
+      - name: start application
+        run: |
+          #yghtdfytdtyd
+          nohup python3 main.py > console.log.txt &
       - name: list log
-        run: cat console.log.txt
+        run: |
+          #yghtdfytdtyd
+          cat console.log.txt
       - name: check if port is listening
-        run: 
-         netstat -an | grep ".5000 "
+        run: |
+          #dsjkhvbskjbdvki
+          netstat -an | grep ".5000 "
           if [ $? -eq 0 ]
             then
               echo "the 5000 port is listening"
-               ps
+              ps
               kill $(lsof -t -i:5000)
               ps
-            fi
+          fi
             
  
