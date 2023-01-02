@@ -29,6 +29,8 @@ jobs:
           #yghtdfytdtyd
           pwd
           ls -al
+          cd ..
+          ls -al
           whereis main
           find main
           nohup python3 main.py > console.log.txt &
