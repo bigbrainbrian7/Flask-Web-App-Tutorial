@@ -12,12 +12,12 @@ jobs:
       - name: create log
         run: touch console.log.txt
       - name: download packages
-        run: yes | sudo apt-get install lsof && sudo apt-get install python3-pip && pip3 install flask && pip3 install flask-login && pip3 install flask-sqlalchemy
+        run: yes | sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
       - name: export env var
         run: export DATBASE_PATH=database
              echo $DATABASE_PATH
-      - name: start application
-        run: nohup python3 /website/Flask-Web-App-Tutorial-0.1.1/main.py > console.log.txt &
+      - name: start appli.1.1/cation
+        run: nohup python3 main.py > console.log.txt &
       - name: list log
         run: cat console.log.txt
       - name: check if port is listening
