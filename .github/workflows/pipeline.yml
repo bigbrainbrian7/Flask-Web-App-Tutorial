@@ -7,6 +7,8 @@ jobs:
     name: echo stuff
     runs-on: ubuntu-latest
     steps:
+      - name: access repo
+        run: actions/checkout@v3
       - name: create directories
         run: |
           #yghtdfytdtyd
@@ -27,25 +29,6 @@ jobs:
       - name: start application
         run: |
           #yghtdfytdtyd
-          pwd
-          ls -al
-          cd ..
-          ls -al
-          cd..
-          ls -al
-          cd ..
-          ls -al
-          cd..
-          ls -al
-          cd ..
-          ls -al
-          cd..
-          ls -al
-          cd ..
-          ls -al
-          cd..
-          whereis main
-          find main
           nohup python3 main.py > console.log.txt &
       - name: list log
         run: |
