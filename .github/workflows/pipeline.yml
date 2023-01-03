@@ -7,7 +7,8 @@ jobs:
     name: echo stuff
     runs-on: ubuntu-latest
     env:
-      DATABASE_PATH: $(pwd)/database
+      DATABASE_PATH: |
+        $(pwd)/database
     steps:
       - name: access repo
         uses: actions/checkout@v3
