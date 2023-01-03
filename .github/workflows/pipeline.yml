@@ -6,9 +6,6 @@ jobs:
   pipeline:
     name: echo stuff
     runs-on: ubuntu-latest
-    env:
-      DATABASE_PATH: |
-        $(pwd)/database
     steps:
       - name: access repo
         uses: actions/checkout@v3
@@ -34,10 +31,13 @@ jobs:
       - name: export env var
         run: |
           #yghtdfytdtyd
+          export DATABASE_PATH=$(pwd)/database
           echo $DATABASE_PATH
+          ls -al
       - name: start application
         run: |
           #yghtdfytdtyd
+          ls -al
           nohup python3 main.py > console.log.txt &
       - name: list log
         run: |
