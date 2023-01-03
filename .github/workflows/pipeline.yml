@@ -18,8 +18,10 @@ jobs:
       - name: echo ipaddr
         run: |
           #dkjvdsvjkl
-          export ipaddr=$(ifconfig)
-          echo $ipaddr
+          export temp=$(hostname -I)
+          echo $temp
+          export ipaddr=$(cut -f1 -d" "<<<$temp)
+          echo ipaddr
       - name: create log
         run: |
           #yghtdfytdtyd
