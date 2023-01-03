@@ -10,3 +10,4 @@ if __name__ == '__main__':
     s.connect((gw[2], 0))
     ipaddr = s.getsockname()[0]
     app.run(host=ipaddr, debug=True)
+    print(ipaddr)
