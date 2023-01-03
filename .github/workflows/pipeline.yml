@@ -11,44 +11,25 @@ jobs:
         uses: actions/checkout@v3
       - name: create directories
         run: |
-          #yghtdfytdtyd
+          #Check App
           mkdir database
-      - name: echo ipaddr
-        run: |
-          #dkjvdsvjkl
-          export temp=$(hostname -I)
-          echo $temp
-          export ipaddr=$(cut -f1 -d" "<<<$temp)
-          echo $ipaddr
-      - name: create log
-        run: |
-          #yghtdfytdtyd
+          
           touch console.log.txt
-      - name: download packages
-        run: |
-          #yghtdfytdtyd
+          
           yes | sudo apt-get install lsof && sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
-      - name: start application
-        run: |
-          #yghtdfytdtyd
+
           export DATABASE_PATH=$(pwd)/database
           echo $DATABASE_PATH
           ls -al
           nohup python3 main.py > console.log.txt &
-      - name: list log
-        run: |
-          #yghtdfytdtyd
+
           cat console.log.txt
-      - name: check if port is listening
-        run: |
-          #dsjkhvbskjbdvki
+          
           netstat -an | grep ".5000 "
           if [ $? -eq 0 ]
             then
               echo "the 5000 port is listening"
-              ps
-              kill -9 $(lsof -t -i:5000)
-              ps
+              kill -9 $(ps -ef|grep "python3 main.py"|grep -v grep|awk '{print $2}')
           fi
             
  
