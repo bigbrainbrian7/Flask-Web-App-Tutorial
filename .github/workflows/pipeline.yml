@@ -28,15 +28,11 @@ jobs:
         run: |
           #yghtdfytdtyd
           yes | sudo apt-get install lsof && sudo apt-get install net-tools && sudo apt-get install python3-pip && sudo pip3 install flask && sudo pip3 install flask-login && sudo pip3 install flask-sqlalchemy
-      - name: export env var
+      - name: start application
         run: |
           #yghtdfytdtyd
           export DATABASE_PATH=$(pwd)/database
           echo $DATABASE_PATH
-          ls -al
-      - name: start application
-        run: |
-          #yghtdfytdtyd
           ls -al
           nohup python3 main.py > console.log.txt &
       - name: list log
