@@ -15,6 +15,11 @@ jobs:
         run: |
           #yghtdfytdtyd
           mkdir database
+      - name: echo ipaddr
+        run: |
+          #dkjvdsvjkl
+          export ipaddr=${hostname -I}
+          echo $ipaddr
       - name: create log
         run: |
           #yghtdfytdtyd
