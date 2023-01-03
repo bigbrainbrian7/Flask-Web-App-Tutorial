@@ -23,6 +23,8 @@ jobs:
           ls -al
           nohup python3 main.py > console.log.txt &
 
+          sleep 1
+          
           cat console.log.txt
           
           netstat -an | grep ".5000 "
